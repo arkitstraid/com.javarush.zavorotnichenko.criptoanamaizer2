@@ -19,7 +19,13 @@ public class CaesarCipher {
         System.out.print("Введите путь к файлу для сохранения зашифрованного текста: ");
         String outputFilePath = scanner.nextLine();
         System.out.print("Введите сдвиг (ключ): ");
-        int shift = Integer.parseInt(scanner.nextLine());
+        int shift;
+        try {
+            shift = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            throw new RuntimeException(e);
+        }
+
 
         if (!Validator.validateFile(inputFilePath) || !Validator.validateShift(shift, ALPHABET.length)) {
             return;
@@ -50,8 +56,12 @@ public class CaesarCipher {
         System.out.print("Введите путь к файлу для сохранения расшифрованного текста: ");
         String outputFilePath = scanner.nextLine();
         System.out.print("Введите сдвиг (ключ): ");
-        int shift = Integer.parseInt(scanner.nextLine());
-
+        int shift;
+        try {
+            shift = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            throw new RuntimeException(e);
+        }
         if (!Validator.validateFile(inputFilePath) || !Validator.validateShift(shift, ALPHABET.length)) {
             return;
         }
